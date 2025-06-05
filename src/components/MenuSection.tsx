@@ -4,7 +4,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Plus, Minus, Leaf, Star } from 'lucide-react';
+import { Plus, Minus, Leaf, Star, Coffee, Utensils, Sun, Moon, Baby, Users, Heart } from 'lucide-react';
 
 interface MenuItem {
   id: string;
@@ -16,6 +16,8 @@ interface MenuItem {
   isVegetarian: boolean;
   rating: number;
   prepTime: string;
+  ageGroup?: 'children' | 'adults' | 'seniors' | 'all';
+  mealTime?: 'breakfast' | 'lunch' | 'dinner' | 'snack';
 }
 
 interface MenuSectionProps {
@@ -26,82 +28,271 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToCart }) => {
   const [quantities, setQuantities] = useState<{ [key: string]: number }>({});
 
   const menuItems: MenuItem[] = [
+    // Breakfast Items
     {
-      id: '1',
-      name: 'Margherita Pizza',
-      description: 'Fresh tomatoes, mozzarella cheese, basil leaves, and olive oil',
-      price: 14.99,
-      image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-      category: 'pizza',
+      id: 'b1',
+      name: 'Dal Bhat with Gundruk',
+      description: 'Traditional Nepali breakfast with lentil soup, rice, and fermented leafy greens',
+      price: 8.99,
+      image: 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+      category: 'breakfast',
       isVegetarian: true,
       rating: 4.8,
-      prepTime: '15-20 min'
+      prepTime: '15-20 min',
+      ageGroup: 'all',
+      mealTime: 'breakfast'
     },
     {
-      id: '2',
-      name: 'Classic Burger',
-      description: 'Beef patty, lettuce, tomato, onion, pickles, and our special sauce',
-      price: 12.99,
-      image: 'https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-      category: 'burgers',
-      isVegetarian: false,
+      id: 'b2',
+      name: 'Sel Roti with Achar',
+      description: 'Traditional ring-shaped rice bread served with spicy pickle',
+      price: 6.99,
+      image: 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+      category: 'breakfast',
+      isVegetarian: true,
       rating: 4.7,
-      prepTime: '10-15 min'
+      prepTime: '10-15 min',
+      ageGroup: 'all',
+      mealTime: 'breakfast'
     },
     {
-      id: '3',
-      name: 'Caesar Salad',
-      description: 'Crisp romaine lettuce, parmesan cheese, croutons, and caesar dressing',
-      price: 9.99,
+      id: 'b3',
+      name: 'Chiura with Curd',
+      description: 'Beaten rice flakes served with fresh yogurt and seasonal fruits',
+      price: 5.99,
       image: 'https://images.unsplash.com/photo-1546793665-c74683f339c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-      category: 'salads',
+      category: 'breakfast',
       isVegetarian: true,
       rating: 4.5,
-      prepTime: '5-10 min'
+      prepTime: '5-10 min',
+      ageGroup: 'children',
+      mealTime: 'breakfast'
+    },
+
+    // Lunch Items
+    {
+      id: 'l1',
+      name: 'Nepali Thali Set',
+      description: 'Complete meal with dal, bhat, tarkari, achar, and papad',
+      price: 15.99,
+      image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+      category: 'lunch',
+      isVegetarian: true,
+      rating: 4.9,
+      prepTime: '20-25 min',
+      ageGroup: 'all',
+      mealTime: 'lunch'
     },
     {
-      id: '4',
-      name: 'Pasta Carbonara',
-      description: 'Spaghetti with eggs, cheese, pancetta, and black pepper',
-      price: 15.99,
-      image: 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-      category: 'pasta',
+      id: 'l2',
+      name: 'Momo (Chicken)',
+      description: 'Steamed dumplings filled with spiced chicken, served with tomato achar',
+      price: 12.99,
+      image: 'https://images.unsplash.com/photo-1563379091339-03246963d96a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+      category: 'lunch',
+      isVegetarian: false,
+      rating: 4.8,
+      prepTime: '15-20 min',
+      ageGroup: 'adults',
+      mealTime: 'lunch'
+    },
+    {
+      id: 'l3',
+      name: 'Vegetable Momo',
+      description: 'Steamed dumplings with mixed vegetables and aromatic spices',
+      price: 10.99,
+      image: 'https://images.unsplash.com/photo-1496116218417-1a781b1c416c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+      category: 'lunch',
+      isVegetarian: true,
+      rating: 4.7,
+      prepTime: '15-20 min',
+      ageGroup: 'all',
+      mealTime: 'lunch'
+    },
+    {
+      id: 'l4',
+      name: 'Chow Mein Nepali Style',
+      description: 'Stir-fried noodles with vegetables and authentic Nepali spices',
+      price: 11.99,
+      image: 'https://images.unsplash.com/photo-1516100882582-96c3a05fe590?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+      category: 'lunch',
+      isVegetarian: true,
+      rating: 4.6,
+      prepTime: '12-18 min',
+      ageGroup: 'children',
+      mealTime: 'lunch'
+    },
+
+    // Dinner Items
+    {
+      id: 'd1',
+      name: 'Khasi Ko Masu',
+      description: 'Traditional goat curry with aromatic spices and herbs',
+      price: 22.99,
+      image: 'https://images.unsplash.com/photo-1532550907401-a500c9a57435?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+      category: 'dinner',
       isVegetarian: false,
       rating: 4.9,
-      prepTime: '15-20 min'
+      prepTime: '30-35 min',
+      ageGroup: 'adults',
+      mealTime: 'dinner'
     },
     {
-      id: '5',
-      name: 'Grilled Chicken',
-      description: 'Tender grilled chicken breast with herbs and spices',
-      price: 18.99,
-      image: 'https://images.unsplash.com/photo-1532550907401-a500c9a57435?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-      category: 'mains',
-      isVegetarian: false,
+      id: 'd2',
+      name: 'Dhido with Ghundruk',
+      description: 'Traditional buckwheat porridge served with fermented greens',
+      price: 9.99,
+      image: 'https://images.unsplash.com/photo-1565299507177-b0ac66763828?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+      category: 'dinner',
+      isVegetarian: true,
       rating: 4.6,
-      prepTime: '20-25 min'
+      prepTime: '20-25 min',
+      ageGroup: 'seniors',
+      mealTime: 'dinner'
     },
     {
-      id: '6',
-      name: 'Chocolate Cake',
-      description: 'Rich chocolate cake with chocolate frosting and berries',
-      price: 6.99,
-      image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-      category: 'desserts',
+      id: 'd3',
+      name: 'Sukuti with Gundruk',
+      description: 'Dried meat with fermented leafy greens - authentic mountain flavor',
+      price: 18.99,
+      image: 'https://images.unsplash.com/photo-1574894709920-11b28e7367e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+      category: 'dinner',
+      isVegetarian: false,
+      rating: 4.8,
+      prepTime: '25-30 min',
+      ageGroup: 'adults',
+      mealTime: 'dinner'
+    },
+
+    // Beverages - Cold Drinks
+    {
+      id: 'cd1',
+      name: 'Lassi (Sweet/Salty)',
+      description: 'Traditional yogurt drink available in sweet or salty variants',
+      price: 4.99,
+      image: 'https://images.unsplash.com/photo-1571197614852-1405cb2d2b51?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+      category: 'cold-drinks',
+      isVegetarian: true,
+      rating: 4.7,
+      prepTime: '3-5 min',
+      ageGroup: 'all'
+    },
+    {
+      id: 'cd2',
+      name: 'Fresh Sugarcane Juice',
+      description: 'Freshly extracted sugarcane juice with lemon and mint',
+      price: 3.99,
+      image: 'https://images.unsplash.com/photo-1622597467836-f3285f2131b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+      category: 'cold-drinks',
+      isVegetarian: true,
+      rating: 4.5,
+      prepTime: '2-3 min',
+      ageGroup: 'all'
+    },
+    {
+      id: 'cd3',
+      name: 'Himalayan Lemonade',
+      description: 'Refreshing lemonade with Himalayan rock salt and fresh herbs',
+      price: 4.49,
+      image: 'https://images.unsplash.com/photo-1523371683702-af4688070c12?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+      category: 'cold-drinks',
+      isVegetarian: true,
+      rating: 4.6,
+      prepTime: '3-5 min',
+      ageGroup: 'all'
+    },
+
+    // Hot Beverages - Tea
+    {
+      id: 't1',
+      name: 'Nepali Chiya',
+      description: 'Traditional milk tea with cardamom, ginger, and authentic spices',
+      price: 2.99,
+      image: 'https://images.unsplash.com/photo-1571934811356-5cc061b6821f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+      category: 'tea',
       isVegetarian: true,
       rating: 4.8,
-      prepTime: '5 min'
+      prepTime: '5-8 min',
+      ageGroup: 'all'
+    },
+    {
+      id: 't2',
+      name: 'Butter Tea (Po Cha)',
+      description: 'Traditional Tibetan-style tea with yak butter and salt',
+      price: 3.99,
+      image: 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+      category: 'tea',
+      isVegetarian: true,
+      rating: 4.4,
+      prepTime: '8-10 min',
+      ageGroup: 'adults'
+    },
+
+    // Water & Healthy Options
+    {
+      id: 'w1',
+      name: 'Himalayan Spring Water',
+      description: 'Pure mountain spring water from the Himalayas',
+      price: 1.99,
+      image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+      category: 'water',
+      isVegetarian: true,
+      rating: 4.9,
+      prepTime: '1 min',
+      ageGroup: 'all'
+    },
+
+    // Children's Special
+    {
+      id: 'k1',
+      name: 'Mini Momo Plate',
+      description: 'Child-friendly smaller momos with mild spices',
+      price: 7.99,
+      image: 'https://images.unsplash.com/photo-1563379091339-03246963d96a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+      category: 'kids',
+      isVegetarian: true,
+      rating: 4.7,
+      prepTime: '10-12 min',
+      ageGroup: 'children'
+    },
+    {
+      id: 'k2',
+      name: 'Nepali Kheer',
+      description: 'Sweet rice pudding with cardamom and dry fruits',
+      price: 5.99,
+      image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+      category: 'kids',
+      isVegetarian: true,
+      rating: 4.8,
+      prepTime: '5 min',
+      ageGroup: 'children'
+    },
+
+    // Senior-Friendly Options
+    {
+      id: 's1',
+      name: 'Soft Dal Bhat',
+      description: 'Gentle preparation of dal bhat perfect for seniors',
+      price: 10.99,
+      image: 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+      category: 'seniors',
+      isVegetarian: true,
+      rating: 4.6,
+      prepTime: '15-20 min',
+      ageGroup: 'seniors'
     }
   ];
 
   const categories = [
-    { id: 'all', name: 'All Items' },
-    { id: 'pizza', name: 'Pizza' },
-    { id: 'burgers', name: 'Burgers' },
-    { id: 'pasta', name: 'Pasta' },
-    { id: 'salads', name: 'Salads' },
-    { id: 'mains', name: 'Main Course' },
-    { id: 'desserts', name: 'Desserts' }
+    { id: 'all', name: 'All Items', icon: Utensils, color: 'bg-gradient-to-r from-orange-400 to-pink-400' },
+    { id: 'breakfast', name: 'Breakfast', icon: Sun, color: 'bg-gradient-to-r from-yellow-400 to-orange-400' },
+    { id: 'lunch', name: 'Lunch', icon: Utensils, color: 'bg-gradient-to-r from-green-400 to-blue-400' },
+    { id: 'dinner', name: 'Dinner', icon: Moon, color: 'bg-gradient-to-r from-purple-400 to-pink-400' },
+    { id: 'cold-drinks', name: 'Cold Drinks', icon: Coffee, color: 'bg-gradient-to-r from-blue-400 to-cyan-400' },
+    { id: 'tea', name: 'Tea & Hot', icon: Coffee, color: 'bg-gradient-to-r from-orange-400 to-red-400' },
+    { id: 'water', name: 'Water', icon: Coffee, color: 'bg-gradient-to-r from-blue-300 to-blue-500' },
+    { id: 'kids', name: 'Kids Special', icon: Baby, color: 'bg-gradient-to-r from-pink-400 to-purple-400' },
+    { id: 'seniors', name: 'Senior Friendly', icon: Heart, color: 'bg-gradient-to-r from-teal-400 to-green-400' }
   ];
 
   const updateQuantity = (itemId: string, change: number) => {
@@ -117,62 +308,100 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToCart }) => {
     setQuantities(prev => ({ ...prev, [item.id]: 0 }));
   };
 
+  const getAgeGroupIcon = (ageGroup?: string) => {
+    switch (ageGroup) {
+      case 'children': return <Baby className="w-3 h-3" />;
+      case 'seniors': return <Heart className="w-3 h-3" />;
+      case 'adults': return <Users className="w-3 h-3" />;
+      default: return <Users className="w-3 h-3" />;
+    }
+  };
+
+  const getAgeGroupColor = (ageGroup?: string) => {
+    switch (ageGroup) {
+      case 'children': return 'bg-pink-500 hover:bg-pink-600';
+      case 'seniors': return 'bg-teal-500 hover:bg-teal-600';
+      case 'adults': return 'bg-blue-500 hover:bg-blue-600';
+      default: return 'bg-gray-500 hover:bg-gray-600';
+    }
+  };
+
   const renderMenuItems = (category: string) => {
     const filteredItems = category === 'all' 
       ? menuItems 
       : menuItems.filter(item => item.category === category);
 
     return (
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {filteredItems.map((item) => (
-          <Card key={item.id} className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
-            <div className="relative">
+          <Card key={item.id} className="overflow-hidden hover:shadow-2xl hover:shadow-orange-200/50 transition-all duration-300 transform hover:-translate-y-2 border-2 border-transparent hover:border-gradient-primary">
+            <div className="relative overflow-hidden">
               <img
                 src={item.image}
                 alt={item.name}
-                className="w-full h-48 object-cover"
+                className="w-full h-56 object-cover transition-transform duration-300 hover:scale-110"
               />
-              {item.isVegetarian && (
-                <Badge className="absolute top-3 left-3 bg-green-500 hover:bg-green-600">
-                  <Leaf className="w-3 h-3 mr-1" />
-                  Veg
-                </Badge>
-              )}
-              <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm rounded-full px-2 py-1 flex items-center space-x-1">
-                <Star className="w-3 h-3 text-yellow-500 fill-current" />
-                <span className="text-xs font-medium">{item.rating}</span>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
+              
+              {/* Badges */}
+              <div className="absolute top-3 left-3 flex flex-col gap-2">
+                {item.isVegetarian && (
+                  <Badge className="bg-green-500 hover:bg-green-600 text-white shadow-lg">
+                    <Leaf className="w-3 h-3 mr-1" />
+                    Veg
+                  </Badge>
+                )}
+                {item.ageGroup && item.ageGroup !== 'all' && (
+                  <Badge className={`${getAgeGroupColor(item.ageGroup)} text-white shadow-lg`}>
+                    {getAgeGroupIcon(item.ageGroup)}
+                    <span className="ml-1 capitalize">{item.ageGroup}</span>
+                  </Badge>
+                )}
+              </div>
+              
+              <div className="absolute top-3 right-3 bg-white/95 backdrop-blur-sm rounded-full px-3 py-2 flex items-center space-x-1 shadow-lg">
+                <Star className="w-4 h-4 text-yellow-500 fill-current" />
+                <span className="text-sm font-bold text-gray-800">{item.rating}</span>
               </div>
             </div>
-            <CardContent className="p-4">
-              <div className="space-y-3">
+            
+            <CardContent className="p-6 bg-gradient-to-br from-white to-gray-50">
+              <div className="space-y-4">
                 <div>
-                  <h3 className="font-semibold text-lg text-gray-900">{item.name}</h3>
-                  <p className="text-sm text-gray-600 line-clamp-2">{item.description}</p>
-                  <p className="text-xs text-gray-500 mt-1">{item.prepTime}</p>
+                  <h3 className="font-bold text-xl text-gray-900 mb-2">{item.name}</h3>
+                  <p className="text-sm text-gray-600 line-clamp-2 leading-relaxed">{item.description}</p>
+                  <div className="flex items-center mt-2 text-xs text-gray-500">
+                    <span className="bg-orange-100 text-orange-600 px-2 py-1 rounded-full">{item.prepTime}</span>
+                    {item.mealTime && (
+                      <span className="ml-2 bg-blue-100 text-blue-600 px-2 py-1 rounded-full capitalize">{item.mealTime}</span>
+                    )}
+                  </div>
                 </div>
                 
                 <div className="flex items-center justify-between">
-                  <span className="text-2xl font-bold text-primary">${item.price}</span>
+                  <span className="text-3xl font-bold bg-gradient-to-r from-orange-500 to-pink-500 bg-clip-text text-transparent">
+                    ${item.price}
+                  </span>
                   
-                  <div className="flex items-center space-x-2">
+                  <div className="flex items-center space-x-3">
                     {/* Quantity Controls */}
-                    <div className="flex items-center space-x-2">
+                    <div className="flex items-center space-x-2 bg-gray-100 rounded-full p-1">
                       <Button
-                        variant="outline"
+                        variant="ghost"
                         size="icon"
-                        className="h-8 w-8"
+                        className="h-8 w-8 rounded-full hover:bg-red-100 hover:text-red-600"
                         onClick={() => updateQuantity(item.id, -1)}
                         disabled={!quantities[item.id]}
                       >
                         <Minus className="h-3 w-3" />
                       </Button>
-                      <span className="w-8 text-center font-medium">
+                      <span className="w-8 text-center font-bold text-gray-700">
                         {quantities[item.id] || 0}
                       </span>
                       <Button
-                        variant="outline"
+                        variant="ghost"
                         size="icon"
-                        className="h-8 w-8"
+                        className="h-8 w-8 rounded-full hover:bg-green-100 hover:text-green-600"
                         onClick={() => updateQuantity(item.id, 1)}
                       >
                         <Plus className="h-3 w-3" />
@@ -180,7 +409,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToCart }) => {
                     </div>
                     
                     <Button
-                      className="bg-gradient-primary hover:shadow-glow transition-all duration-300"
+                      className="bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
                       onClick={() => handleAddToCart(item)}
                     >
                       Add to Cart
@@ -196,32 +425,43 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToCart }) => {
   };
 
   return (
-    <section id="menu" className="py-20 bg-gray-50">
+    <section id="menu" className="py-20 bg-gradient-to-br from-orange-50 via-pink-50 to-purple-50">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl lg:text-5xl font-display font-bold text-gray-900 mb-4">
-            Our <span className="text-gradient">Menu</span>
+        <div className="text-center mb-16">
+          <h2 className="text-5xl lg:text-6xl font-display font-bold text-gray-900 mb-6">
+            Authentic <span className="bg-gradient-to-r from-orange-500 to-pink-500 bg-clip-text text-transparent">Nepali</span> Cuisine
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Discover our carefully crafted dishes made with the finest ingredients
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Experience the rich flavors of Nepal with our carefully crafted traditional dishes, 
+            perfect for every age and every time of day
           </p>
+          <div className="flex justify-center mt-6">
+            <div className="w-24 h-1 bg-gradient-to-r from-orange-400 to-pink-400 rounded-full"></div>
+          </div>
         </div>
 
         <Tabs defaultValue="all" className="w-full">
-          <TabsList className="grid grid-cols-4 lg:grid-cols-7 w-full max-w-4xl mx-auto mb-8">
-            {categories.map((category) => (
-              <TabsTrigger
-                key={category.id}
-                value={category.id}
-                className="text-sm font-medium"
-              >
-                {category.name}
-              </TabsTrigger>
-            ))}
+          <TabsList className="grid grid-cols-3 lg:grid-cols-9 w-full max-w-6xl mx-auto mb-12 bg-white/80 backdrop-blur-sm shadow-lg rounded-2xl p-2">
+            {categories.map((category) => {
+              const IconComponent = category.icon;
+              return (
+                <TabsTrigger
+                  key={category.id}
+                  value={category.id}
+                  className="text-sm font-semibold rounded-xl transition-all duration-300 data-[state=active]:text-white data-[state=active]:shadow-lg flex items-center gap-2 py-3"
+                  style={{
+                    background: category.color
+                  }}
+                >
+                  <IconComponent className="w-4 h-4" />
+                  <span className="hidden sm:inline">{category.name}</span>
+                </TabsTrigger>
+              );
+            })}
           </TabsList>
 
           {categories.map((category) => (
-            <TabsContent key={category.id} value={category.id}>
+            <TabsContent key={category.id} value={category.id} className="mt-8">
               {renderMenuItems(category.id)}
             </TabsContent>
           ))}
