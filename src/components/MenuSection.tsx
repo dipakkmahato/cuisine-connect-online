@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -448,10 +447,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToCart }) => {
                 <TabsTrigger
                   key={category.id}
                   value={category.id}
-                  className="text-sm font-semibold rounded-xl transition-all duration-300 data-[state=active]:text-white data-[state=active]:shadow-lg flex items-center gap-2 py-3"
-                  style={{
-                    background: category.color
-                  }}
+                  className={`text-sm font-semibold rounded-xl transition-all duration-300 flex items-center gap-2 py-3 text-white data-[state=active]:text-white data-[state=active]:shadow-lg data-[state=inactive]:text-gray-700 data-[state=inactive]:bg-gray-100 ${category.color}`}
                 >
                   <IconComponent className="w-4 h-4" />
                   <span className="hidden sm:inline">{category.name}</span>
