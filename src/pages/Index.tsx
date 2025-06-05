@@ -3,6 +3,9 @@ import React, { useState } from 'react';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import MenuSection from '@/components/MenuSection';
+import About from '@/components/About';
+import Contact from '@/components/Contact';
+import Footer from '@/components/Footer';
 import CartSidebar from '@/components/CartSidebar';
 import AuthModal from '@/components/AuthModal';
 import { useToast } from '@/hooks/use-toast';
@@ -151,6 +154,12 @@ const Index = () => {
       <Hero onOrderNowClick={handleOrderNow} />
       
       <MenuSection onAddToCart={handleAddToCart} />
+      
+      <About />
+      
+      <Contact />
+      
+      <Footer />
       
       <CartSidebar
         isOpen={isCartOpen}
