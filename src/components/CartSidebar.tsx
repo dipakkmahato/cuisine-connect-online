@@ -32,7 +32,7 @@ const CartSidebar: React.FC<CartSidebarProps> = ({
   onCheckout
 }) => {
   const subtotal = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-  const deliveryFee = subtotal > 30 ? 0 : 2.99;
+  const deliveryFee = subtotal > 3000 ? 0 : 299; // Adjusted for NPR
   const tax = subtotal * 0.08;
   const total = subtotal + deliveryFee + tax;
 
@@ -67,7 +67,7 @@ const CartSidebar: React.FC<CartSidebarProps> = ({
                     />
                     <div className="flex-1">
                       <h4 className="font-semibold text-gray-900">{item.name}</h4>
-                      <p className="text-primary font-bold">${item.price.toFixed(2)}</p>
+                      <p className="text-primary font-bold">NPR {item.price}</p>
                     </div>
                     <div className="flex items-center space-x-2">
                       <Button
@@ -108,30 +108,30 @@ const CartSidebar: React.FC<CartSidebarProps> = ({
               <div className="space-y-2">
                 <div className="flex justify-between text-sm">
                   <span>Subtotal</span>
-                  <span>${subtotal.toFixed(2)}</span>
+                  <span>NPR {subtotal}</span>
                 </div>
                 <div className="flex justify-between text-sm">
                   <span className="flex items-center space-x-1">
                     <Truck className="h-4 w-4" />
                     <span>Delivery</span>
                   </span>
-                  <span>{deliveryFee === 0 ? 'FREE' : `$${deliveryFee.toFixed(2)}`}</span>
+                  <span>{deliveryFee === 0 ? 'FREE' : `NPR ${deliveryFee}`}</span>
                 </div>
                 <div className="flex justify-between text-sm">
                   <span>Tax</span>
-                  <span>${tax.toFixed(2)}</span>
+                  <span>NPR {Math.round(tax)}</span>
                 </div>
                 <Separator />
                 <div className="flex justify-between font-bold text-lg">
                   <span>Total</span>
-                  <span>${total.toFixed(2)}</span>
+                  <span>NPR {Math.round(total)}</span>
                 </div>
               </div>
 
-              {subtotal < 30 && (
+              {subtotal < 3000 && (
                 <div className="bg-orange-50 border border-orange-200 rounded-lg p-3">
                   <p className="text-sm text-orange-700">
-                    Add ${(30 - subtotal).toFixed(2)} more for free delivery!
+                    Add NPR {(3000 - subtotal)} more for free delivery!
                   </p>
                 </div>
               )}

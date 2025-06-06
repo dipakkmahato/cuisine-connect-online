@@ -32,7 +32,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToCart }) => {
       id: 'b1',
       name: 'Dal Bhat with Gundruk',
       description: 'Traditional Nepali breakfast with lentil soup, rice, and fermented leafy greens',
-      price: 8.99,
+      price: 899,
       image: 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
       category: 'breakfast',
       isVegetarian: true,
@@ -45,7 +45,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToCart }) => {
       id: 'b2',
       name: 'Sel Roti with Achar',
       description: 'Traditional ring-shaped rice bread served with spicy pickle',
-      price: 6.99,
+      price: 699,
       image: 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
       category: 'breakfast',
       isVegetarian: true,
@@ -58,7 +58,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToCart }) => {
       id: 'b3',
       name: 'Chiura with Curd',
       description: 'Beaten rice flakes served with fresh yogurt and seasonal fruits',
-      price: 5.99,
+      price: 599,
       image: 'https://images.unsplash.com/photo-1546793665-c74683f339c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
       category: 'breakfast',
       isVegetarian: true,
@@ -73,7 +73,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToCart }) => {
       id: 'l1',
       name: 'Nepali Thali Set',
       description: 'Complete meal with dal, bhat, tarkari, achar, and papad',
-      price: 15.99,
+      price: 1599,
       image: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
       category: 'lunch',
       isVegetarian: true,
@@ -86,7 +86,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToCart }) => {
       id: 'l2',
       name: 'Momo (Chicken)',
       description: 'Steamed dumplings filled with spiced chicken, served with tomato achar',
-      price: 12.99,
+      price: 1299,
       image: 'https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
       category: 'lunch',
       isVegetarian: false,
@@ -99,7 +99,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToCart }) => {
       id: 'l3',
       name: 'Vegetable Momo',
       description: 'Steamed dumplings with mixed vegetables and aromatic spices',
-      price: 10.99,
+      price: 1099,
       image: 'https://images.unsplash.com/photo-1496116218417-1a781b1c416c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
       category: 'lunch',
       isVegetarian: true,
@@ -112,7 +112,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToCart }) => {
       id: 'l4',
       name: 'Chow Mein Nepali Style',
       description: 'Stir-fried noodles with vegetables and authentic Nepali spices',
-      price: 11.99,
+      price: 1199,
       image: 'https://images.unsplash.com/photo-1516100882582-96c3a05fe590?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
       category: 'lunch',
       isVegetarian: true,
@@ -127,7 +127,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToCart }) => {
       id: 'd1',
       name: 'Khasi Ko Masu',
       description: 'Traditional goat curry with aromatic spices and herbs',
-      price: 22.99,
+      price: 2299,
       image: 'https://images.unsplash.com/photo-1532550907401-a500c9a57435?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
       category: 'dinner',
       isVegetarian: false,
@@ -140,7 +140,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToCart }) => {
       id: 'd2',
       name: 'Dhido with Ghundruk',
       description: 'Traditional buckwheat porridge served with fermented greens',
-      price: 9.99,
+      price: 999,
       image: 'https://images.unsplash.com/photo-1565299507177-b0ac66763828?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
       category: 'dinner',
       isVegetarian: true,
@@ -153,7 +153,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToCart }) => {
       id: 'd3',
       name: 'Sukuti with Gundruk',
       description: 'Dried meat with fermented leafy greens - authentic mountain flavor',
-      price: 18.99,
+      price: 1899,
       image: 'https://images.unsplash.com/photo-1574894709920-11b28e7367e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
       category: 'dinner',
       isVegetarian: false,
@@ -168,7 +168,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToCart }) => {
       id: 'cd1',
       name: 'Lassi (Sweet/Salty)',
       description: 'Traditional yogurt drink available in sweet or salty variants',
-      price: 4.99,
+      price: 499,
       image: 'https://images.unsplash.com/photo-1570197788417-0e82375c9371?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
       category: 'cold-drinks',
       isVegetarian: true,
@@ -180,7 +180,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToCart }) => {
       id: 'cd2',
       name: 'Fresh Sugarcane Juice',
       description: 'Freshly extracted sugarcane juice with lemon and mint',
-      price: 3.99,
+      price: 399,
       image: 'https://images.unsplash.com/photo-1622597467836-f3285f2131b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
       category: 'cold-drinks',
       isVegetarian: true,
@@ -192,7 +192,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToCart }) => {
       id: 'cd3',
       name: 'Himalayan Lemonade',
       description: 'Refreshing lemonade with Himalayan rock salt and fresh herbs',
-      price: 4.49,
+      price: 449,
       image: 'https://images.unsplash.com/photo-1621263764928-df1444c5e859?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
       category: 'cold-drinks',
       isVegetarian: true,
@@ -206,7 +206,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToCart }) => {
       id: 't1',
       name: 'Nepali Chiya',
       description: 'Traditional milk tea with cardamom, ginger, and authentic spices',
-      price: 2.99,
+      price: 299,
       image: 'https://images.unsplash.com/photo-1571934811356-5cc061b6821f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
       category: 'tea',
       isVegetarian: true,
@@ -218,7 +218,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToCart }) => {
       id: 't2',
       name: 'Butter Tea (Po Cha)',
       description: 'Traditional Tibetan-style tea with yak butter and salt',
-      price: 3.99,
+      price: 399,
       image: 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
       category: 'tea',
       isVegetarian: true,
@@ -232,7 +232,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToCart }) => {
       id: 'w1',
       name: 'Himalayan Spring Water',
       description: 'Pure mountain spring water from the Himalayas',
-      price: 1.99,
+      price: 199,
       image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
       category: 'water',
       isVegetarian: true,
@@ -246,8 +246,8 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToCart }) => {
       id: 'k1',
       name: 'Mini Momo Plate',
       description: 'Child-friendly smaller momos with mild spices',
-      price: 7.99,
-      image: 'https://images.unsplash.com/photo-1601314002957-dd7cd17beb97?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+      price: 799,
+      image: 'https://images.unsplash.com/photo-1496116218417-1a781b1c416c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
       category: 'kids',
       isVegetarian: true,
       rating: 4.7,
@@ -258,7 +258,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToCart }) => {
       id: 'k2',
       name: 'Nepali Kheer',
       description: 'Sweet rice pudding with cardamom and dry fruits',
-      price: 5.99,
+      price: 599,
       image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
       category: 'kids',
       isVegetarian: true,
@@ -272,7 +272,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToCart }) => {
       id: 's1',
       name: 'Soft Dal Bhat',
       description: 'Gentle preparation of dal bhat perfect for seniors',
-      price: 10.99,
+      price: 1099,
       image: 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
       category: 'seniors',
       isVegetarian: true,
@@ -303,8 +303,10 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToCart }) => {
 
   const handleAddToCart = (item: MenuItem) => {
     const quantity = quantities[item.id] || 1;
-    onAddToCart(item, quantity);
-    setQuantities(prev => ({ ...prev, [item.id]: 0 }));
+    if (quantity > 0) {
+      onAddToCart(item, quantity);
+      setQuantities(prev => ({ ...prev, [item.id]: 0 }));
+    }
   };
 
   const getAgeGroupIcon = (ageGroup?: string) => {
@@ -379,7 +381,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToCart }) => {
                 
                 <div className="flex items-center justify-between">
                   <span className="text-3xl font-bold bg-gradient-to-r from-orange-500 to-pink-500 bg-clip-text text-transparent">
-                    ${item.price}
+                    NPR {item.price}
                   </span>
                   
                   <div className="flex items-center space-x-3">
@@ -410,6 +412,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToCart }) => {
                     <Button
                       className="bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
                       onClick={() => handleAddToCart(item)}
+                      disabled={!quantities[item.id] || quantities[item.id] === 0}
                     >
                       Add to Cart
                     </Button>
