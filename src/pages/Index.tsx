@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
@@ -15,7 +14,7 @@ interface MenuItem {
   name: string;
   description: string;
   price: number;
-  image: string;
+  images: string[];
   category: string;
   isVegetarian: boolean;
   rating: number;
@@ -60,7 +59,7 @@ const Index = () => {
           name: item.name,
           price: item.price,
           quantity,
-          image: item.image
+          image: item.images[0] // Use the first image from the array
         }];
       }
     });
