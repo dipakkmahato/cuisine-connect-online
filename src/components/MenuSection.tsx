@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+
+import React, { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -25,24 +26,6 @@ interface MenuSectionProps {
 
 const MenuSection: React.FC<MenuSectionProps> = ({ onAddToCart }) => {
   const [quantities, setQuantities] = useState<{ [key: string]: number }>({});
-  const [currentImageIndex, setCurrentImageIndex] = useState<{ [key: string]: number }>({});
-
-  // Auto-rotate images every 3 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex(prev => {
-        const newIndex = { ...prev };
-        menuItems.forEach(item => {
-          if (item.images.length > 1) {
-            newIndex[item.id] = ((prev[item.id] || 0) + 1) % item.images.length;
-          }
-        });
-        return newIndex;
-      });
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, []);
 
   const menuItems: MenuItem[] = [
     // Breakfast Items
@@ -414,30 +397,15 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToCart }) => {
     return (
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {filteredItems.map((item) => {
-          const currentImg = currentImageIndex[item.id] || 0;
           return (
             <Card key={item.id} className="overflow-hidden hover:shadow-2xl hover:shadow-orange-200/50 transition-all duration-300 transform hover:-translate-y-2 border-2 border-transparent hover:border-gradient-primary">
               <div className="relative overflow-hidden">
                 <img
-                  src={item.images[currentImg]}
+                  src={item.images[0]}
                   alt={item.name}
                   className="w-full h-56 object-cover transition-transform duration-300 hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
-                
-                {/* Image indicators for multiple images */}
-                {item.images.length > 1 && (
-                  <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex space-x-1">
-                    {item.images.map((_, index) => (
-                      <div
-                        key={index}
-                        className={`w-2 h-2 rounded-full ${
-                          index === currentImg ? 'bg-white' : 'bg-white/50'
-                        }`}
-                      />
-                    ))}
-                  </div>
-                )}
                 
                 {/* Badges */}
                 <div className="absolute top-3 left-3 flex flex-col gap-2">
